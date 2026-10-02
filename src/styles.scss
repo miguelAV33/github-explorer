@@ -1,0 +1,52 @@
+/* Global styles */
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #12151d;
+  color: #edf1f7;
+  font-family: 'IBM Plex Sans', 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .navbar-brand {
+  font-family: 'Space Grotesk', 'IBM Plex Sans', sans-serif;
+}
+
+a {
+  color: #6f9bc9;
+}
+
+::selection {
+  background: rgba(111, 155, 201, 0.35);
+}
+
+.btn-primary {
+  background-color: #6f9bc9;
+  border-color: #6f9bc9;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #5c87b5;
+  border-color: #5c87b5;
+}
+
+.btn-outline-light:hover {
+  color: #12151d;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #12151d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2b3546;
+  border-radius: 999px;
+}

@@ -1,0 +1,19 @@
+<div class="container favorites-page">
+  <h1>Usuarios favoritos</h1>
+
+  @if (favorites.list().length === 0) {
+    <div class="empty-state">
+      <p>Todavía no has guardado ningún usuario.</p>
+      <a routerLink="/" class="btn btn-primary btn-sm">Buscar un usuario</a>
+    </div>
+  } @else {
+    <div class="favorites-grid">
+      @for (username of favorites.list(); track username) {
+        <a [routerLink]="['/usuario', username]" class="favorite-item">
+          <img [src]="'https://github.com/' + username + '.png'" [alt]="username" />
+          <span>&#64;{{ username }}</span>
+        </a>
+      }
+    </div>
+  }
+</div>

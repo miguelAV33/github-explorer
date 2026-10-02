@@ -1,0 +1,40 @@
+<section class="hero">
+  <div class="container">
+    <p class="eyebrow">Explorador de perfiles</p>
+    <h1>Busca cualquier usuario de GitHub</h1>
+    <p class="lead">
+      Escribe un nombre de usuario para ver su perfil, sus repositorios
+      públicos y guardarlo en favoritos.
+    </p>
+
+    <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" class="search-form" novalidate>
+      <div class="input-group input-group-lg">
+        <span class="input-group-text">github.com/</span>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="username"
+          placeholder="torvalds"
+          [class.is-invalid]="submitted() && username.invalid"
+          autocomplete="off"
+        />
+        <button class="btn btn-primary" type="submit">Buscar</button>
+      </div>
+      @if (submitted() && username.hasError('required')) {
+        <div class="form-feedback">Escribe un nombre de usuario para buscar.</div>
+      }
+      @if (submitted() && username.hasError('pattern')) {
+        <div class="form-feedback">
+          Ese no parece un nombre de usuario válido de GitHub.
+        </div>
+      }
+    </form>
+
+    <div class="examples">
+      <span>Prueba con:</span>
+      @for (name of examples; track name) {
+        <button type="button" class="chip" (click)="searchExample(name)">{{ name }}</button>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,43 @@
+.app-navbar {
+  background: #12151d;
+  border-bottom: 1px solid #262f3e;
+  padding: 14px 0;
+}
+
+.navbar-brand {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbar-brand:hover {
+  color: #fff;
+}
+
+.brand-mark {
+  color: #6f9bc9;
+  font-family: 'Courier New', monospace;
+}
+
+.nav-link {
+  color: #a7afc0 !important;
+  font-size: 0.95rem;
+  padding: 6px 14px !important;
+  text-decoration: none;
+}
+
+.nav-link.active {
+  color: #fff !important;
+}
+
+.favorites-badge {
+  background: #c9a468;
+  color: #12151d;
+  font-size: 0.65rem;
+  margin-left: 4px;
+  vertical-align: top;
+}

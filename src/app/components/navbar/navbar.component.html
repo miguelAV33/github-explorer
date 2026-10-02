@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand navbar-dark app-navbar">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">
+      <span class="brand-mark">{{ '{ }' }}</span> GitHub Explorer
+    </a>
+    <div class="navbar-nav ms-auto">
+      <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        Buscar
+      </a>
+      <a class="nav-link position-relative" routerLink="/favoritos" routerLinkActive="active">
+        Favoritos
+        @if (favorites.list().length > 0) {
+          <span class="badge rounded-pill favorites-badge">{{ favorites.list().length }}</span>
+        }
+      </a>
+    </div>
+  </div>
+</nav>
