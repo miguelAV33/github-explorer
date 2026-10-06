@@ -37,16 +37,16 @@ npm start          # servidor de desarrollo en http://localhost:4200
 npm run build
 ```
 
-El resultado se genera en `dist/github-explorer/browser`. Si se despliega en una subcarpeta (por ejemplo `/demo-github-explorer/` dentro de otro sitio), hay que compilar indicando esa ruta:
+El resultado se genera en `dist/github-explorer/browser` y es totalmente estático: funciona subido a cualquier hosting (también dentro de una subcarpeta, como `/demo-github-explorer/`) **y abriendo `index.html` con doble clic**, sin servidor.
 
-```bash
-npx ng build --base-href /demo-github-explorer/
-```
+Para conseguirlo, `npm run build` hace dos pasos:
 
-> **Nota:** al ser una aplicación Angular compilada en módulos ES, el build de producción necesita servirse desde un servidor web (http/https) — no funciona abriendo `index.html` directamente con doble clic (`file://`), por una restricción de seguridad de los navegadores con los módulos de JavaScript.
+1. `ng build` normal, sin etiqueta `<base>` y con rutas por hash (`#/usuario/torvalds`), así que no hace falta configurar reglas de reescritura en el servidor y los enlaces directos sobreviven a una recarga.
+2. [`scripts/build-estatico.mjs`](scripts/build-estatico.mjs) vuelve a empaquetar cada script con esbuild en formato IIFE y lo carga como `<script defer>` en lugar de `<script type="module">`. Los navegadores bloquean los módulos ES cargados desde `file://`; los scripts clásicos no.
 
 ## Decisiones de diseño
 
+- **Rutas con hash** (`withHashLocation()`): la app funciona igual en la raíz de un dominio, en una subcarpeta o desde el disco, sin depender de la configuración del servidor.
 - **Sin backend propio:** toda la app es estática y consulta la API pública de GitHub directamente desde el navegador, por lo que se puede desplegar en cualquier hosting estático (Netlify, Vercel, GitHub Pages).
 - **Favoritos sin servidor:** se guardan en `localStorage` envuelto en try/catch, para que la app no se rompa en navegación privada o si el almacenamiento no está disponible.
 
