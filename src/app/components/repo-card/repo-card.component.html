@@ -1,7 +1,7 @@
 <a [href]="repo.html_url" target="_blank" rel="noopener" class="repo-card">
   <div class="repo-card__head">
     <h3>{{ repo.name }}</h3>
-    <span class="stars">★ {{ repo.stargazers_count }}</span>
+    <span class="stars" [attr.aria-label]="count(repo.stargazers_count) + ' estrellas'">★ {{ count(repo.stargazers_count) }}</span>
   </div>
   <p class="repo-card__desc">{{ repo.description || 'Sin descripción.' }}</p>
   <div class="repo-card__meta">
@@ -12,7 +12,7 @@
       </span>
     }
     @if (repo.forks_count > 0) {
-      <span>{{ repo.forks_count }} forks</span>
+      <span>{{ count(repo.forks_count) }} forks</span>
     }
   </div>
 </a>

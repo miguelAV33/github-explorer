@@ -5,6 +5,7 @@ import { FavoritesService } from '../../services/favorites.service';
 import { GithubUser } from '../../models/github-user.model';
 import { GithubRepo } from '../../models/github-repo.model';
 import { RepoCardComponent } from '../repo-card/repo-card.component';
+import { formatCount } from '../../utils/format';
 
 type SortMode = 'updated' | 'stars' | 'name';
 
@@ -71,6 +72,10 @@ export class UserDetailComponent {
           (a, b) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()
         );
     }
+  }
+
+  count(value: number): string {
+    return formatCount(value);
   }
 
   setSort(mode: SortMode): void {

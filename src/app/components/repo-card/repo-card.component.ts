@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { GithubRepo } from '../../models/github-repo.model';
+import { formatCount } from '../../utils/format';
 
 const LANGUAGE_COLORS: Record<string, string> = {
   JavaScript: '#e3c878',
@@ -22,6 +23,10 @@ const LANGUAGE_COLORS: Record<string, string> = {
 })
 export class RepoCardComponent {
   @Input({ required: true }) repo!: GithubRepo;
+
+  count(value: number): string {
+    return formatCount(value);
+  }
 
   get languageColor(): string {
     if (!this.repo.language) return '#5c6577';
