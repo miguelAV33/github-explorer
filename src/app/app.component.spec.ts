@@ -1,29 +1,35 @@
 import { TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
+    localStorage.clear();
     await TestBed.configureTestingModule({
       imports: [AppComponent],
+      providers: [provideRouter([])]
     }).compileComponents();
   });
 
-  it('should create the app', () => {
+  it('se crea', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    expect(fixture.componentInstance).toBeTruthy();
   });
 
-  it(`should have the 'github-explorer' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('github-explorer');
-  });
-
-  it('should render title', () => {
+  it('muestra la barra de navegación con la marca y los enlaces', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, github-explorer');
+    const el = fixture.nativeElement as HTMLElement;
+
+    expect(el.querySelector('.navbar-brand')?.textContent).toContain('GitHub Explorer');
+    const links = Array.from(el.querySelectorAll('.nav-link')).map((a) => a.textContent?.trim());
+    expect(links).toContain('Buscar');
+    expect(links.some((t) => t?.startsWith('Favoritos'))).toBeTrue();
+  });
+
+  it('incluye la salida del router dentro de <main>', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    expect((fixture.nativeElement as HTMLElement).querySelector('main router-outlet')).not.toBeNull();
   });
 });
