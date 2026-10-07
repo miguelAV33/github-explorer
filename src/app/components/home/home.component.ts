@@ -12,7 +12,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 export class HomeComponent {
   searchForm;
 
-  readonly examples = ['torvalds', 'HookMike', 'gaearon', 'sindresorhus'];
+  readonly examples = ['torvalds', 'miguelAV33', 'gaearon', 'sindresorhus'];
   submitted = signal(false);
 
   constructor(private fb: FormBuilder, private router: Router) {
