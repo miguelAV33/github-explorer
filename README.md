@@ -2,8 +2,8 @@
 
 Buscador de perfiles de GitHub construido con Angular: consulta la API pública de GitHub, muestra el perfil y los repositorios de cualquier usuario, y guarda favoritos en el navegador.
 
-**Demo en vivo:** https://tu-dominio.netlify.app/demo-github-explorer/
-**Más contexto del proyecto:** https://tu-dominio.netlify.app/proyectos/github-explorer
+**Demo en vivo:** https://miguelangel-alonso.netlify.app/demo-github-explorer/
+**Más contexto del proyecto:** https://miguelangel-alonso.netlify.app/proyectos/github-explorer
 
 ![GitHub Explorer](./docs/screenshot.png)
 
@@ -61,4 +61,4 @@ npm run test:ci    # una sola pasada en Chrome sin ventana (CI, contenedores)
 
 ## Autor
 
-Miguel Ángel Alonso Valhondo — [LinkedIn](https://www.linkedin.com/in/miguelangel-alonso-valhondo) · [Portfolio](https://tu-dominio.netlify.app)
+Miguel Ángel Alonso Valhondo — [LinkedIn](https://www.linkedin.com/in/miguelangel-alonso-valhondo) · [Portfolio](https://miguelangel-alonso.netlify.app)
